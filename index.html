@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Reuse DOM</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+		<script src="script.js"></script>
+		<style>
+			.container{
+				width:200px;
+				height:400px;
+				overflow:scroll;
+			}
+			.wrapper,dummycontent{
+				width:100%;
+			}
+			.content{
+				position:absolute;
+				width:180px;
+				top:0;
+			}
+		</style>
+	</head>
+	<body ng-app="myApp" ng-controller="myController">
+		<div class="container" scroll-element eleid="wrapper">
+			<div class="wrapper" id="wrapper" ng-style="{'height':totalHeight+'vw'}">
+				<!--div class="dummycontent" ng-style="{'height':beforeHeight+'vw'}"></div-->
+				
+			</div>
+			<div class="content">
+				<div class="item" ng-repeat="item in topRows track by $index" ng-style="{'height':rowHeight+'vw'}">{{item}}</div>
+			</div>
+		</div>
+	</body>
+</html>
